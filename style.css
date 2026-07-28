@@ -4,6 +4,21 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
+/* ─── KUNCI TAMPILAN & PENCEGAHAN GESER KANAN-KIRI ─── */
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    /* Mencegah halaman bergeser/scroll ke samping */
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
 /* ─── CSS Reset & Box Sizing ──────────────────────────────── */
 *,
 *::before,
@@ -1927,7 +1942,7 @@ footer {
         flex-direction: column;
     }
 
-    .daftar-layanan, 
+    .daftar-layanan,
     .grid-testimoni {
         grid-template-columns: 1fr;
     }
