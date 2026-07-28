@@ -2609,3 +2609,382 @@ button.gambar-klik {
     appearance: none;
     -webkit-appearance: none;
 }
+
+/* ============================================================
+   ✨ PREMIUM IMPROVEMENT V6.0
+   Tambahkan DI PALING BAWAH CSS
+============================================================ */
+
+/* ===== Premium Background Aurora ===== */
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: auto;
+    width: 900px;
+    height: 900px;
+    top: -300px;
+    left: -300px;
+
+    background:
+        radial-gradient(circle,
+            rgba(0, 242, 254, .12),
+            transparent 70%);
+
+    filter: blur(130px);
+
+    animation: auroraMove 18s ease-in-out infinite alternate;
+
+    pointer-events: none;
+    z-index: -2;
+}
+
+/* ===== Noise Texture ===== */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: .03;
+
+    background-image:
+        radial-gradient(rgba(255, 255, 255, .12) 1px, transparent 1px);
+
+    background-size: 6px 6px;
+
+    mix-blend-mode: soft-light;
+
+    z-index: -1;
+
+}
+
+/* ===== Premium Glass ===== */
+
+.kartu,
+.kartu-testimoni,
+.kontak-card,
+.kontak-cta-panel,
+.statistik {
+
+    background:
+        linear-gradient(145deg,
+            rgba(255, 255, 255, .08),
+            rgba(255, 255, 255, .03));
+
+    backdrop-filter:
+        blur(24px) saturate(180%);
+
+    -webkit-backdrop-filter:
+        blur(24px) saturate(180%);
+
+}
+
+/* ===== Premium Shadow ===== */
+
+.kartu,
+.kartu-testimoni,
+.hero-img-wrapper,
+.statistik {
+
+    box-shadow:
+
+        0 10px 30px rgba(0, 0, 0, .35),
+
+        0 30px 60px rgba(0, 0, 0, .45),
+
+        0 0 35px rgba(0, 242, 254, .08);
+
+}
+
+/* ===== Hover Card Premium ===== */
+
+.kartu {
+
+    transform-style: preserve-3d;
+
+    transition:
+        .45s cubic-bezier(.2, .8, .2, 1);
+
+}
+
+.kartu:hover {
+
+    transform:
+
+        translateY(-12px) rotateX(5deg) rotateY(-5deg) scale(1.02);
+
+}
+
+/* ===== Hero Glow ===== */
+
+.hero-img-wrapper {
+
+    position: relative;
+
+}
+
+.hero-img-wrapper::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -35px;
+
+    background:
+
+        radial-gradient(circle,
+
+            rgba(0, 242, 254, .28),
+
+            transparent 70%);
+
+    filter: blur(60px);
+
+    z-index: -1;
+
+    animation: heroGlow 6s ease-in-out infinite;
+
+}
+
+/* ===== Premium Image Hover ===== */
+
+img {
+
+    transition:
+
+        transform .7s,
+
+        filter .7s;
+
+}
+
+img:hover {
+
+    transform: scale(1.03);
+
+    filter:
+
+        brightness(1.05) contrast(1.08) saturate(1.15);
+
+}
+
+/* ===== Animated Gradient Heading ===== */
+
+.hero h1,
+.section-header h2 {
+
+    background-size: 300%;
+
+    animation:
+
+        gradientFlow 8s linear infinite;
+
+}
+
+/* ===== Better Button ===== */
+
+.tombol {
+
+    box-shadow:
+
+        0 0 15px rgba(0, 242, 254, .15),
+
+        0 20px 45px rgba(0, 0, 0, .35);
+
+}
+
+.tombol:hover {
+
+    box-shadow:
+
+        0 0 35px rgba(0, 242, 254, .4),
+
+        0 30px 60px rgba(0, 0, 0, .45);
+
+}
+
+/* ===== Contact Card ===== */
+
+.kontak-card:hover {
+
+    transform:
+
+        translateY(-6px) scale(1.02);
+
+}
+
+/* ===== Statistik ===== */
+
+.stat-item {
+
+    transition: .35s;
+
+}
+
+.stat-item:hover {
+
+    transform: translateY(-8px);
+
+}
+
+.stat-item:hover .stat-angka {
+
+    text-shadow:
+
+        0 0 20px rgba(0, 242, 254, .7);
+
+}
+
+/* ===== Reveal Animation ===== */
+
+.reveal {
+
+    filter: blur(20px);
+
+}
+
+.reveal.visible {
+
+    filter: none;
+
+}
+
+/* ===== Floating Animation ===== */
+
+.hero-badge {
+
+    animation: floatingBadge 5s ease-in-out infinite;
+
+}
+
+/* ===== Scrollbar ===== */
+
+::-webkit-scrollbar-thumb {
+
+    box-shadow:
+
+        inset 0 0 10px rgba(255, 255, 255, .25);
+
+}
+
+/* ===== Footer ===== */
+
+footer {
+
+    position: relative;
+
+}
+
+footer::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: 0;
+
+    height: 1px;
+
+    background:
+
+        linear-gradient(90deg,
+
+            transparent,
+
+            rgba(0, 242, 254, .6),
+
+            transparent);
+
+}
+
+/* ===============================
+            KEYFRAMES
+================================ */
+
+@keyframes auroraMove {
+
+    0% {
+
+        transform:
+            translate(0, 0) rotate(0deg);
+
+    }
+
+    50% {
+
+        transform:
+            translate(220px, 120px) rotate(90deg);
+
+    }
+
+    100% {
+
+        transform:
+            translate(80vw, 45vh) rotate(180deg);
+
+    }
+
+}
+
+@keyframes heroGlow {
+
+    0%,
+    100% {
+
+        opacity: .45;
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        opacity: .8;
+
+        transform: scale(1.2);
+
+    }
+
+}
+
+@keyframes gradientFlow {
+
+    0% {
+
+        background-position: 0%;
+
+    }
+
+    100% {
+
+        background-position: 300%;
+
+    }
+
+}
+
+@keyframes floatingBadge {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-12px);
+
+    }
+
+}
