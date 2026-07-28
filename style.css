@@ -2988,3 +2988,322 @@ footer::before {
     }
 
 }
+
+/*==============================================================
+            PREMIUM FINAL POLISH V8
+==============================================================*/
+
+/* ===== Smooth Animation Engine ===== */
+:root {
+    --ease-premium: cubic-bezier(.22, 1, .36, 1);
+}
+
+*,
+*::before,
+*::after {
+    transition:
+        background-color .35s var(--ease-premium),
+        border-color .35s var(--ease-premium),
+        color .35s var(--ease-premium),
+        box-shadow .45s var(--ease-premium),
+        transform .45s var(--ease-premium),
+        opacity .35s var(--ease-premium);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ===== Noise Background ===== */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .025;
+    z-index: 9999;
+    background-image:
+        radial-gradient(rgba(255, 255, 255, .25) 1px, transparent 1px);
+    background-size: 6px 6px;
+    mix-blend-mode: soft-light;
+}
+
+/* ===== Aurora Glow ===== */
+body::after {
+    content: "";
+    position: fixed;
+    width: 850px;
+    height: 850px;
+    top: -250px;
+    left: -250px;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle,
+            rgba(0, 242, 254, .10),
+            transparent 70%);
+    filter: blur(120px);
+    animation: auroraFloat 20s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes auroraFloat {
+
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(65vw, 35vh);
+    }
+
+}
+
+/* ===== Universal Card ===== */
+
+.kartu,
+.card,
+.service-card,
+.feature-card,
+.testimonial-card,
+.contact-card {
+
+    position: relative;
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, .25),
+        0 0 30px rgba(0, 242, 254, .05);
+
+}
+
+.kartu:hover,
+.card:hover,
+.service-card:hover,
+.feature-card:hover,
+.testimonial-card:hover,
+.contact-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, .35),
+        0 0 35px rgba(0, 242, 254, .18);
+
+}
+
+/* ===== Animated Shine ===== */
+
+.kartu::before,
+.card::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: -140%;
+
+    top: 0;
+
+    width: 60%;
+
+    height: 100%;
+
+    background:
+
+        linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, .15),
+            transparent);
+
+    transform: skewX(-25deg);
+
+    transition: 1.2s;
+
+}
+
+.kartu:hover::before,
+.card:hover::before {
+
+    left: 180%;
+
+}
+
+/* ===== Button ===== */
+
+button,
+.btn {
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+button:hover,
+.btn:hover {
+
+    transform:
+        translateY(-3px) scale(1.02);
+
+    box-shadow:
+        0 15px 35px rgba(0, 242, 254, .18);
+
+}
+
+/* ===== Image ===== */
+
+img {
+
+    will-change: transform;
+
+}
+
+img:hover {
+
+    transform: scale(1.03);
+
+    filter:
+        brightness(1.05) contrast(1.04) saturate(1.08);
+
+}
+
+/* ===== Link ===== */
+
+a {
+
+    position: relative;
+
+}
+
+a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: -2px;
+
+    width: 0;
+
+    height: 2px;
+
+    transform: translateX(-50%);
+
+    background: #00f2fe;
+
+    transition: .35s;
+
+}
+
+a:hover::after {
+
+    width: 100%;
+
+}
+
+/* ===== Section ===== */
+
+section {
+
+    position: relative;
+
+}
+
+section:not(:last-child)::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: -40px;
+
+    width: 45%;
+
+    height: 1px;
+
+    transform: translateX(-50%);
+
+    background:
+
+        linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, .12),
+            transparent);
+
+}
+
+/* ===== Scrollbar ===== */
+
+::-webkit-scrollbar {
+
+    width: 9px;
+
+}
+
+::-webkit-scrollbar-thumb {
+
+    border-radius: 50px;
+
+    background:
+
+        linear-gradient(180deg,
+            #00f2fe,
+            #4facfe,
+            #8b5cf6);
+
+}
+
+/* ===== Selection ===== */
+
+::selection {
+
+    background:
+        rgba(0, 242, 254, .25);
+
+    color: #fff;
+
+}
+
+/* ===== Reduce Animation on Mobile ===== */
+
+@media(max-width:768px) {
+
+    body::after {
+
+        animation: none;
+
+        opacity: .45;
+
+    }
+
+    .kartu:hover,
+    .card:hover {
+
+        transform: none;
+
+    }
+
+    img:hover {
+
+        transform: none;
+
+    }
+
+}
