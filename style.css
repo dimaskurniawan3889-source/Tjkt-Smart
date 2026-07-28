@@ -799,7 +799,6 @@ nav {
 }
 
 .kartu:hover {
-    transform: translateY(-8px);
     border-color: var(--border-neon);
     box-shadow: var(--glow-card);
 }
@@ -916,7 +915,6 @@ nav {
 }
 
 .kartu-testimoni:hover {
-    transform: translateY(-6px);
     border-color: var(--border-violet);
     box-shadow: var(--glow-violet);
 }
@@ -1328,6 +1326,14 @@ footer {
     color: var(--teks-redup);
 }
 
+.benefit-container {
+    position: relative;
+}
+
+.benefit-node {
+    position: absolute;
+}
+
 /* ─── FLOATING BACK TO TOP BUTTON ─────────────────────────── */
 .back-to-top {
     position: fixed;
@@ -1586,6 +1592,32 @@ footer {
     outline-offset: -3px;
 }
 
+/* Reuse the same zoom affordance on any .gambar-klik trigger (e.g. hero image) */
+.gambar-klik:hover .modal-gambar-overlay,
+.gambar-klik:focus-visible .modal-gambar-overlay {
+    opacity: 1;
+}
+
+.gambar-klik:hover .modal-gambar-zoom-icon,
+.gambar-klik:focus-visible .modal-gambar-zoom-icon {
+    transform: scale(1);
+}
+
+.gambar-klik:hover img,
+.gambar-klik:focus-visible img {
+    transform: scale(1.04);
+}
+
+.gambar-klik img {
+    transition: transform var(--transisi-lambat);
+}
+
+.gambar-klik:focus-visible {
+    outline: 3px solid var(--color-cyan);
+    outline-offset: 2px;
+    border-radius: var(--radius-xl);
+}
+
 /* ─── LIGHTBOX — PRATINJAU GAMBAR PENUH ───────────────────── */
 .lightbox-overlay {
     position: fixed;
@@ -1841,4 +1873,739 @@ footer {
         width: 42px;
         height: 42px;
     }
+}
+
+/* ============================================================
+   PREMIUM ENTERPRISE UPGRADE — v6.0
+   Advanced motion system, network topology, lightbox nav,
+   email routing menu, and enterprise-grade micro-interactions
+   ============================================================ */
+
+/* ─── Advanced Keyframes ──────────────────────────────────── */
+@keyframes floatSlow {
+
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(0, -14px, 0);
+    }
+}
+
+@keyframes floatSlowAlt {
+
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(0, 12px, 0);
+    }
+}
+
+@keyframes nodePulse {
+
+    0%,
+    100% {
+        opacity: 0.55;
+        box-shadow: 0 0 6px currentColor;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 18px currentColor, 0 0 32px currentColor;
+        transform: scale(1.25);
+    }
+}
+
+@keyframes nodeRingExpand {
+    0% {
+        transform: scale(0.6);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scale(2.4);
+        opacity: 0;
+    }
+}
+
+@keyframes lineFlow {
+    to {
+        stroke-dashoffset: -400;
+    }
+}
+
+@keyframes benefitFadeFloat {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 8px, 0) scale(0.92);
+    }
+
+    10%,
+    85% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate3d(0, -10px, 0) scale(0.94);
+    }
+}
+
+@keyframes auroraDrift {
+    0% {
+        transform: translate3d(-4%, -2%, 0) rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: translate3d(4%, 3%, 0) rotate(6deg) scale(1.08);
+    }
+
+    100% {
+        transform: translate3d(-4%, -2%, 0) rotate(0deg) scale(1);
+    }
+}
+
+@keyframes particleRise {
+    0% {
+        transform: translate3d(0, 0, 0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: translate3d(0, -140px, 0);
+        opacity: 0;
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes shimmerSweep {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes scrollWheelDrop {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translateY(14px);
+        opacity: 0;
+    }
+}
+
+@keyframes dropdownReveal {
+    from {
+        opacity: 0;
+        transform: translateY(-8px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes toastPop {
+    0% {
+        transform: translate(-50%, 12px) scale(0.95);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(-50%, 0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes holoScan {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    15%,
+    85% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+/* ─── Blur Reveal (upgrade of .reveal) ────────────────────── */
+.reveal-blur {
+    opacity: 0;
+    filter: blur(14px);
+    transform: translateY(28px) scale(0.98);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, filter, transform;
+}
+
+.reveal-blur.visible {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+}
+
+/* ─── Ambient Glow Orbs (section atmosphere) ──────────────── */
+.ambient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: -1;
+    animation: auroraDrift 16s ease-in-out infinite;
+}
+
+.statistik {
+    position: relative;
+    overflow: visible;
+}
+
+/* ─── Section Header Animated Divider ─────────────────────── */
+.section-divider {
+    width: 64px;
+    height: 3px;
+    margin: 6px auto 22px;
+    border-radius: var(--radius-full);
+    background: linear-gradient(90deg, var(--color-cyan), var(--color-violet), var(--color-magenta), var(--color-cyan));
+    background-size: 300% 100%;
+    animation: gradientShift 4s ease infinite;
+    box-shadow: 0 0 12px rgba(0, 242, 254, 0.5);
+}
+
+/* ─── Magnetic / Premium Button Enhancements ──────────────── */
+.tombol,
+.tombol-kontak,
+.nav-cta {
+    will-change: transform;
+}
+
+.tombol-primer {
+    background-size: 200% 200%;
+    animation: ctaBreathe 3.5s ease-in-out infinite, gradientShift 6s ease infinite;
+}
+
+/* ─── Card Hover Tilt (JS-driven via --rx/--ry custom props) ─ */
+.kartu,
+.kartu-testimoni {
+    transform: perspective(1000px) rotateX(var(--ry, 0deg)) rotateY(var(--rx, 0deg)) translateY(var(--ty, 0px));
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color var(--transisi-sedang), box-shadow var(--transisi-sedang);
+}
+
+.kartu:hover,
+.kartu-testimoni:hover {
+    --ty: -8px;
+}
+
+.kartu-testimoni:hover {
+    --ty: -6px;
+}
+
+/* ─── Glass Reflection Sweep on Hero Image ────────────────── */
+.hero-img-wrapper {
+    animation: floatSlow 7s ease-in-out infinite;
+}
+
+.hero-img-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border-radius: calc(var(--radius-xl) - 4px);
+    background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.16) 45%, rgba(255, 255, 255, 0.05) 55%, transparent 70%);
+    background-size: 250% 250%;
+    animation: shimmerSweep 5s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.hero-badge {
+    animation: floatSlowAlt 5s ease-in-out infinite;
+}
+
+/* ════════════════════════════════════════════════════════════
+   NETWORK TOPOLOGY — jaringan.jpg living background system
+   ════════════════════════════════════════════════════════════ */
+.network-topology {
+    position: absolute;
+    inset: -60px;
+    z-index: 0;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.topo-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.topo-line {
+    fill: none;
+    stroke: url(#topoLineGradient);
+    stroke-width: 1.2;
+    stroke-dasharray: 6 10;
+    opacity: 0.55;
+    animation: lineFlow 6s linear infinite;
+}
+
+.topo-node {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-cyan);
+    color: var(--color-cyan);
+    box-shadow: 0 0 10px currentColor;
+    animation: nodePulse 3.2s ease-in-out infinite;
+}
+
+.topo-node::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 1px solid currentColor;
+    animation: nodeRingExpand 3.2s ease-out infinite;
+}
+
+.topo-node.violet {
+    background: var(--color-violet);
+    color: var(--color-violet);
+}
+
+.topo-node.magenta {
+    background: var(--color-magenta);
+    color: var(--color-magenta);
+}
+
+.topo-node.emerald {
+    background: var(--color-emerald);
+    color: var(--color-emerald);
+}
+
+/* Positions for individual nodes (percentage-based, orbit the hero image) */
+.topo-node:nth-of-type(1) {
+    top: 4%;
+    left: 8%;
+    animation-delay: 0s;
+}
+
+.topo-node:nth-of-type(2) {
+    top: 14%;
+    right: 4%;
+    animation-delay: .4s;
+}
+
+.topo-node:nth-of-type(3) {
+    bottom: 22%;
+    left: -2%;
+    animation-delay: .8s;
+}
+
+.topo-node:nth-of-type(4) {
+    bottom: 6%;
+    right: 10%;
+    animation-delay: 1.2s;
+}
+
+.topo-node:nth-of-type(5) {
+    top: 46%;
+    left: 2%;
+    animation-delay: 1.6s;
+}
+
+.topo-node:nth-of-type(6) {
+    top: 38%;
+    right: -1%;
+    animation-delay: 2s;
+}
+
+/* Floating Benefit Nodes */
+.benefit-node {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--teks-utama);
+    background: rgba(5, 8, 22, 0.72);
+    border: 1px solid var(--border-neon);
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 14px rgba(0, 242, 254, 0.15);
+    opacity: 0;
+    animation: benefitFadeFloat 8s ease-in-out infinite, floatSlow 6s ease-in-out infinite;
+    z-index: 3;
+}
+
+.benefit-node svg,
+.benefit-node .cek {
+    color: var(--color-emerald);
+    flex-shrink: 0;
+}
+
+.benefit-node:nth-of-type(1) {
+    top: 2%;
+    left: 4%;
+    animation-delay: 0s, 0s;
+}
+
+.benefit-node:nth-of-type(2) {
+    top: 20%;
+    right: 2%;
+    animation-delay: 1.6s, .5s;
+}
+
+.benefit-node:nth-of-type(3) {
+    bottom: 30%;
+    left: -6%;
+    animation-delay: 3.2s, 1s;
+}
+
+.benefit-node:nth-of-type(4) {
+    bottom: 10%;
+    right: 6%;
+    animation-delay: 4.8s, 1.5s;
+}
+
+.benefit-node:nth-of-type(5) {
+    top: 50%;
+    left: -8%;
+    animation-delay: 6.4s, 2s;
+}
+
+@media (max-width: 992px) {
+    .network-topology {
+        display: none;
+    }
+}
+
+/* ════════════════════════════════════════════════════════════
+   CLICKABLE IMAGE AFFORDANCE + LIGHTBOX NAVIGATION
+   ════════════════════════════════════════════════════════════ */
+.lightbox-figur {
+    position: relative;
+}
+
+.lightbox-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: rgba(13, 19, 53, 0.85);
+    border: 1px solid var(--border-neon);
+    color: var(--teks-utama);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transisi-cepat);
+    z-index: 10;
+}
+
+.lightbox-nav:hover {
+    background: var(--color-cyan);
+    color: #03050d;
+    box-shadow: var(--glow-cyan);
+}
+
+.lightbox-prev {
+    left: 24px;
+}
+
+.lightbox-next {
+    right: 24px;
+}
+
+.lightbox-counter {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.85rem;
+    color: var(--teks-sekunder);
+    background: rgba(13, 19, 53, 0.8);
+    border: 1px solid var(--border-glass);
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    z-index: 10;
+}
+
+.lightbox-caption {
+    text-align: center;
+    margin-top: 14px;
+    color: var(--teks-utama);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+    .lightbox-nav {
+        width: 40px;
+        height: 40px;
+    }
+
+    .lightbox-prev {
+        left: 8px;
+    }
+
+    .lightbox-next {
+        right: 8px;
+    }
+}
+
+/* ════════════════════════════════════════════════════════════
+   EMAIL ROUTING DROPDOWN (fixes mailto blank-tab bug)
+   ════════════════════════════════════════════════════════════ */
+.email-trigger {
+    cursor: pointer;
+}
+
+.email-dropdown {
+    position: fixed;
+    min-width: 240px;
+    background: rgba(9, 13, 33, 0.97);
+    backdrop-filter: blur(18px);
+    border: 1px solid var(--border-neon);
+    border-radius: var(--radius-md);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), var(--glow-cyan);
+    padding: 8px;
+    z-index: 5000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px) scale(0.96);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+.email-dropdown.aktif {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    animation: dropdownReveal 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.email-dropdown-judul {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--teks-redup);
+    padding: 8px 12px 6px;
+}
+
+.email-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 12px;
+    background: none;
+    border: none;
+    border-radius: var(--radius-sm);
+    color: var(--teks-utama);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transisi-cepat);
+    text-align: left;
+}
+
+.email-dropdown-item:hover {
+    background: rgba(0, 242, 254, 0.12);
+    color: var(--color-cyan);
+    padding-left: 16px;
+}
+
+.email-dropdown-item .icon-wrap {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 242, 254, 0.1);
+    flex-shrink: 0;
+}
+
+.email-dropdown-sub {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--teks-redup);
+    font-weight: 400;
+}
+
+/* ─── Scroll Indicator (Hero) ─────────────────────────────── */
+.scroll-indicator {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--teks-redup);
+    text-decoration: none;
+    font-size: 0.72rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    z-index: 2;
+    transition: color var(--transisi-cepat);
+}
+
+.scroll-indicator:hover {
+    color: var(--color-cyan);
+}
+
+.scroll-indicator-mouse {
+    width: 22px;
+    height: 36px;
+    border: 2px solid currentColor;
+    border-radius: 12px;
+    position: relative;
+}
+
+.scroll-indicator-mouse::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    margin-left: -2px;
+    border-radius: 50%;
+    background: currentColor;
+    animation: scrollWheelDrop 1.8s ease-in-out infinite;
+}
+
+@media (max-width: 992px) {
+    .scroll-indicator {
+        display: none;
+    }
+}
+
+/* ─── Footer Animated Top Border ──────────────────────────── */
+footer {
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-cyan), var(--color-violet), var(--color-magenta), transparent);
+    background-size: 200% 100%;
+    animation: gradientShift 8s ease infinite;
+}
+
+/* ─── WhatsApp Label Buttons (no raw number shown) ────────── */
+.wa-cta-label {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ─── Kartu Icon Holographic Scan ─────────────────────────── */
+.kartu-ikon {
+    position: relative;
+    overflow: hidden;
+}
+
+.kartu-ikon::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent, rgba(0, 242, 254, 0.35), transparent);
+    animation: holoScan 3s ease-in-out infinite;
+}
+
+/* ─── Testimoni Star Twinkle ──────────────────────────────── */
+.testimoni-bintang {
+    animation: iconGlowPulse 4s ease-in-out infinite;
+}
+
+/* ─── Improved Focus for Dropdown Trigger ─────────────────── */
+.email-trigger:focus-visible {
+    outline: 2px solid var(--color-cyan);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+}
+
+/* ─── Reduced Motion Respect (extends existing rule) ──────── */
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-img-wrapper,
+    .hero-badge,
+    .benefit-node,
+    .topo-node,
+    .topo-node::after,
+    .kartu-ikon::after,
+    .scroll-indicator-mouse::before {
+        animation: none !important;
+    }
+}
+
+/* ─── Native <button> Reset for Repurposed Triggers ───────── */
+button.email-trigger,
+button.kontak-card,
+button.tombol-kontak,
+button.sosmed-link,
+button.gambar-klik {
+    font-family: inherit;
+    -webkit-tap-highlight-color: transparent;
+    appearance: none;
+    -webkit-appearance: none;
 }
