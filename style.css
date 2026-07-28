@@ -3307,3 +3307,377 @@ section:not(:last-child)::after {
     }
 
 }
+
+/*==============================================================
+                PREMIUM PATCH V8.1
+                CARD ENGINE PRO
+==============================================================*/
+
+/* ===== Universal Premium Card ===== */
+
+.kartu,
+.card,
+.service-card,
+.feature-card,
+.testimonial-card,
+.contact-card,
+.pricing-card,
+.gallery-item {
+
+    isolation: isolate;
+    position: relative;
+    overflow: hidden;
+
+    transform-style: preserve-3d;
+
+}
+
+/* ===== Animated Border Glow ===== */
+
+.kartu::after,
+.card::after,
+.service-card::after,
+.feature-card::after,
+.testimonial-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -1px;
+
+    padding: 1px;
+
+    border-radius: inherit;
+
+    background:
+
+        linear-gradient(120deg,
+
+            transparent,
+
+            rgba(0, 242, 254, .35),
+
+            transparent,
+
+            rgba(139, 92, 246, .30),
+
+            transparent);
+
+    background-size: 350%;
+
+    animation: borderGlowMove 8s linear infinite;
+
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+
+    pointer-events: none;
+
+    opacity: .45;
+
+}
+
+/* ===== Hover Lift ===== */
+
+.kartu:hover,
+.card:hover,
+.service-card:hover,
+.feature-card:hover,
+.testimonial-card:hover {
+
+    transform:
+
+        translateY(-10px) scale(1.015);
+
+}
+
+/* ===== Soft Reflection ===== */
+
+.kartu::before,
+.card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -120%;
+
+    left: -40%;
+
+    width: 70%;
+
+    height: 250%;
+
+    background:
+
+        linear-gradient(90deg,
+
+            transparent,
+
+            rgba(255, 255, 255, .08),
+
+            transparent);
+
+    transform:
+
+        rotate(25deg);
+
+    transition: 1.2s;
+
+}
+
+.kartu:hover::before,
+.card:hover::before {
+
+    left: 140%;
+
+}
+
+/* ===== Icon Premium ===== */
+
+.service-icon,
+.card-icon,
+.feature-icon {
+
+    transition:
+
+        .5s cubic-bezier(.22, 1, .36, 1);
+
+}
+
+.service-card:hover .service-icon,
+.card:hover .card-icon,
+.feature-card:hover .feature-icon {
+
+    transform:
+
+        translateY(-6px) rotate(-6deg) scale(1.12);
+
+    filter:
+
+        drop-shadow(0 0 18px rgba(0, 242, 254, .45));
+
+}
+
+/* ===== Image Premium ===== */
+
+.card img,
+.kartu img {
+
+    transition:
+
+        transform .8s cubic-bezier(.22, 1, .36, 1);
+
+}
+
+.card:hover img,
+.kartu:hover img {
+
+    transform: scale(1.06);
+
+}
+
+/* ===== Better Shadow ===== */
+
+.kartu,
+.card {
+
+    box-shadow:
+
+        0 2px 6px rgba(0, 0, 0, .08),
+
+        0 18px 45px rgba(0, 0, 0, .22),
+
+        0 0 40px rgba(0, 242, 254, .05);
+
+}
+
+.kartu:hover,
+.card:hover {
+
+    box-shadow:
+
+        0 8px 20px rgba(0, 0, 0, .15),
+
+        0 28px 65px rgba(0, 0, 0, .35),
+
+        0 0 45px rgba(0, 242, 254, .15);
+
+}
+
+/* ===== Floating Badge ===== */
+
+.badge,
+.label,
+.tag {
+
+    transition: .45s;
+
+}
+
+.card:hover .badge,
+.kartu:hover .badge {
+
+    transform:
+
+        translateY(-3px) scale(1.06);
+
+}
+
+/* ===== Keyframes ===== */
+
+@keyframes borderGlowMove {
+
+    0% {
+
+        background-position: 0%;
+
+    }
+
+    100% {
+
+        background-position: 350%;
+
+    }
+
+}
+
+/*==============================================================
+                PREMIUM PATCH V8.2
+                TYPOGRAPHY ENGINE
+==============================================================*/
+
+h1 {
+
+    letter-spacing: -1.5px;
+
+    line-height: 1.08;
+
+    font-weight: 800;
+
+}
+
+h2 {
+
+    letter-spacing: -.8px;
+
+    line-height: 1.18;
+
+    font-weight: 700;
+
+}
+
+h3 {
+
+    font-weight: 700;
+
+}
+
+p {
+
+    line-height: 1.85;
+
+    opacity: .92;
+
+}
+
+strong {
+
+    color: #fff;
+
+}
+
+.section-title,
+.hero-title {
+
+    background-size: 300%;
+
+    animation:
+
+        gradientMoveText 10s linear infinite;
+
+}
+
+@keyframes gradientMoveText {
+
+    100% {
+
+        background-position: 300%;
+
+    }
+
+}
+
+/*==============================================================
+                PREMIUM PATCH V8.2
+                TYPOGRAPHY ENGINE
+==============================================================*/
+
+h1 {
+
+    letter-spacing: -1.5px;
+
+    line-height: 1.08;
+
+    font-weight: 800;
+
+}
+
+h2 {
+
+    letter-spacing: -.8px;
+
+    line-height: 1.18;
+
+    font-weight: 700;
+
+}
+
+h3 {
+
+    font-weight: 700;
+
+}
+
+p {
+
+    line-height: 1.85;
+
+    opacity: .92;
+
+}
+
+strong {
+
+    color: #fff;
+
+}
+
+.section-title,
+.hero-title {
+
+    background-size: 300%;
+
+    animation:
+
+        gradientMoveText 10s linear infinite;
+
+}
+
+@keyframes gradientMoveText {
+
+    100% {
+
+        background-position: 300%;
+
+    }
+
+}
